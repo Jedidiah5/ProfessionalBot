@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import GamingStats from './components/GamingStats';
 import ImageCarousel from './components/ImageCarousel';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -17,12 +18,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F] text-white overflow-x-hidden">
+    <main className="bg-[#0F0F0F] min-h-screen">
+      <Navbar />
       <Hero />
       <GamingStats />
       <ImageCarousel />
       <Footer />
-    </div>
+    </main>
   );
 }
 

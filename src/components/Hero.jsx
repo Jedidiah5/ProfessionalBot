@@ -14,36 +14,8 @@ const Hero = () => {
     <section className="relative min-h-screen w-full overflow-hidden bg-[#0F0F0F] font-vietnam">
       <div className="container mx-auto px-4 h-full">
         {/* Responsive Layout Container */}
-        <div className="relative flex flex-col lg:flex-row h-screen items-center justify-between gap-12 lg:gap-24">
-          {/* Character Image Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="absolute lg:relative inset-0 lg:inset-auto lg:flex-1"
-          >
-            <motion.div
-              className="w-full h-screen"
-              animate={{ 
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <img
-                src={characterImg}
-                alt="Game Character"
-                className="w-full h-full object-contain object-center lg:object-left"
-              />
-              {/* Gradient overlay only for mobile */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/50 to-transparent lg:hidden"></div>
-            </motion.div>
-          </motion.div>
-
-          {/* Content Section - Right side on desktop */}
+        <div className="relative flex flex-col-reverse lg:flex-row h-screen items-center justify-between gap-12 lg:gap-24">
+          {/* Content Section - Left side on desktop */}
           <div className="relative z-10 lg:flex-1 flex items-center justify-start h-full px-0 lg:px-8">
             <div className="flex flex-col items-start -mt-20 lg:mt-0 w-full max-w-lg">
               {/* Title Section */}
@@ -68,14 +40,26 @@ const Hero = () => {
                   </p>
                 </div>
 
+                {/* Introduction Text */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="space-y-4 mt-6"
+                >
+                  <p className="text-white/90 text-base lg:text-lg leading-relaxed">
+                    I'm ProfessionalBot, a front-end developer and gamer. I build clean, fast, mobile-friendly websites for gaming creators like you. Whether you're just starting or already growing fast, I can help you look pro and land more opportunities.
+                  </p>
+                </motion.div>
+
                 {/* Stats Section */}
                 <div className="flex gap-12 py-4">
                   <div className="flex flex-col">
-                    <span className="text-white font-bold text-2xl lg:text-3xl">10K+</span>
+                    <span className="text-white font-bold text-2xl lg:text-3xl">1.2K+</span>
                     <span className="text-white/70 text-xs lg:text-sm">Followers</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-white font-bold text-2xl lg:text-3xl">500+</span>
+                    <span className="text-white font-bold text-2xl lg:text-3xl">50+</span>
                     <span className="text-white/70 text-xs lg:text-sm">Videos</span>
                   </div>
                 </div>
@@ -117,6 +101,34 @@ const Hero = () => {
               </motion.a>
             </div>
           </div>
+
+          {/* Character Image Section - Right side on desktop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="absolute lg:relative inset-0 lg:inset-auto lg:flex-1"
+          >
+            <motion.div
+              className="w-full h-screen"
+              animate={{ 
+                scale: [1, 1.02, 1],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <img
+                src={characterImg}
+                alt="Game Character"
+                className="w-full h-full object-contain object-center lg:object-right"
+              />
+              {/* Gradient overlay only for mobile */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/50 to-transparent lg:hidden"></div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
